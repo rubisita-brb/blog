@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Vida en Melodías | Blog Profesional</title>
+
+    <style>
+        :root {
+            --primary-yellow: #FFC107;
+            --bg-color: #f3ead7;
+            --text-color: #2c2c2c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* LLUVIA MUSICAL */
+        body::before {
+            content:
+                "🎵     🎶     🎼     🎤     🎸     🎧     🎵     🎶     🎼     🎤     🎸"
+                "🎶     🎵     🎸     🎼     🎧     🎤     🎶     🎵     🎼     🎸     🎧"
+                "🎤     🎶     🎵     🎸     🎼     🎧     🎶     🎵     🎤     🎼     🎸"
+                "🎵     🎧     🎶     🎸     🎼     🎤     🎵     🎶     🎧     🎸     🎼"
+                "🎶     🎵     🎼     🎤     🎸     🎧     🎶     🎵     🎼     🎤     🎸";
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            font-size: 2.2rem;
+            line-height: 120px;
+            letter-spacing: 35px;
+
+            opacity: 0.06;
+
+            z-index: 0;
+
+            pointer-events: none;
+
+            animation: lluvia 35s linear infinite;
+        }
+
+        /* BRILLOS */
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top left,
+                    rgba(255, 193, 7, 0.12),
+                    transparent 30%),
+
+                radial-gradient(circle at bottom right,
+                    rgba(255, 193, 7, 0.10),
+                    transparent 30%);
+
+            z-index: -1;
+        }
+
+        @keyframes lluvia {
+            from {
+                transform: translateY(-150px);
+            }
+
+            to {
+                transform: translateY(150px);
+            }
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #1a1a1a,
+                #2f2f2f
+            );
+
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 8px solid var(--primary-yellow);
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            margin-bottom: 120px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(255, 248, 220, 0.92),
+                rgba(255, 236, 179, 0.88)
+            );
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border: 2px solid rgba(255, 193, 7, 0.25);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                0 0 20px rgba(255, 193, 7, 0.12);
+
+            backdrop-filter: blur(5px);
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-side {
+            flex: 1.2;
+        }
+
+        .text-side h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        /* TEXTOS */
+        .text1,
+        .text2,
+        .text3,
+        .text4 {
+            text-align: justify;
+        }
+
+        .text1 {
+            font-size: 1.13rem;
+            line-height: 1.8;
+        }
+
+        .text2 {
+            font-size: 1.08rem;
+            line-height: 1.9;
+        }
+
+        .text3 {
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .text4 {
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .image-side {
+            flex: 1;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+
+            border-radius: 15px;
+            border: 4px solid white;
+
+            box-shadow: 15px 15px 0px var(--primary-yellow);
+
+            display: block;
+            transition: 0.3s;
+        }
+
+        .image-side img:hover {
+            transform: scale(1.02);
+        }
+
+        .video-wrapper {
+            background: linear-gradient(
+                135deg,
+                #1a1a1a,
+                #2c2c2c
+            );
+
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+
+            border: 2px solid rgba(255, 193, 7, 0.25);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(255, 193, 7, 0.15);
+        }
+
+        .video-wrapper h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            max-width: 850px;
+            margin: auto;
+            border: 4px solid var(--primary-yellow);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(
+                135deg,
+                #1a1a1a,
+                #2f2f2f
+            );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            margin-top: 80px;
+
+            border-top: 6px solid var(--primary-yellow);
+
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            .section {
+                flex-direction: column;
+                padding: 25px;
+            }
+
+            .section:nth-child(even) {
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .text-side h2 {
+                font-size: 1.6rem;
+            }
+
+            .video-wrapper {
+                padding: 30px 20px;
+            }
+
+            .image-side img {
+                height: 300px;
+            }
+
+            body::before {
+                font-size: 1.4rem;
+                letter-spacing: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mi Vida en Melodías</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- SECCIÓN 1 -->
+        <section class="section">
+
+            <div class="text-side">
+                <h2>La música como refugio</h2>
+
+                <p class="text1">
+                    La música ha sido una parte esencial de mi vida desde pequeña.
+                    No solo la escucho por entretenimiento, también me ayuda a sentir
+                    tranquilidad y paz cuando más lo necesito. Cada canción tiene la
+                    capacidad de cambiar mi estado de ánimo y acompañarme en diferentes
+                    momentos importantes de mi vida personal y emocional.
+                </p>
+            </div>
+
+            <div class="image-side">
+                <img src="img/yochiquitatocandlabateria.jpg" alt="Refugio musical">
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 2 -->
+        <section class="section">
+
+            <div class="text-side">
+                <h2>Primeras experiencias</h2>
+
+                <p class="text2">
+                    Desde pequeña he estado muy relacionada con el canto y la música.
+                    Siempre disfruté expresarme por medio de canciones y presentaciones
+                    especiales junto a personas importantes para mí. Uno de mis recuerdos
+                    favoritos es cantar con mi papá en la iglesia, porque representaba
+                    unión, alegría, confianza y momentos muy felices en familia.
+                </p>
+            </div>
+
+            <div class="image-side">
+                <img src="img/yocantandoconpiedad.png" alt="Primeras experiencias">
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 3 -->
+        <section class="section">
+
+            <div class="text-side">
+                <h2>Crecimiento y Metas</h2>
+
+                <p class="text3">
+                    Mi amor por la música ha crecido muchísimo con el paso del tiempo.
+                    Me encanta aprender nuevas técnicas, descubrir géneros diferentes y
+                    mejorar cada día mi manera de cantar frente a otras personas. Siento
+                    que cada estilo musical tiene algo especial que aportar a mi vida y
+                    deseo continuar creciendo tanto profesional como personalmente siempre.
+                </p>
+            </div>
+
+            <div class="image-side">
+                <img src="img/guitarra.png" alt="Metas musicales">
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 4 -->
+        <section class="section">
+
+            <div class="text-side">
+                <h2>Inspiración y Pasión</h2>
+
+                <p class="text4">
+                    La música también se ha convertido en una fuente de inspiración constante
+                    en mi vida diaria. Cada vez que practico o aprendo algo nuevo, siento
+                    que desarrollo más confianza en mí misma y en mis capacidades artísticas.
+                    Disfruto compartir momentos musicales con otras personas mientras continúo
+                    fortaleciendo mi pasión.
+                </p>
+            </div>
+
+            <div class="image-side">
+                <img src="img/otraguitarra.png" alt="Inspiración musical">
+            </div>
+
+        </section>
+
+        <!-- VIDEO -->
+        <div class="video-wrapper">
+
+            <h2>Mi Talento: El Eco de mi Voz</h2>
+
+            <div class="video-container">
+
+                <video controls>
+                    <source src="img/videofinal.mp4" type="video/mp4">
+                </video>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>🎵 Mi Vida en Melodías © 2026 | La música expresa lo que las palabras no pueden decir 🎶</p>
+
+    </footer>
+
+</body>
+
+</html>
